@@ -1,96 +1,88 @@
 import requests
-from typing import Optional, Dict, List, Union
 
 
 class TelegramBot:
-    def __init__(self, token: str):
+    def __init__(self, token):
         """Initialize the bot with the given token.
 
-        Attributes:
-            token (str): The Telegram Bot API token used for authentication.
-            base_url (str): The base URL for making requests to the Telegram Bot API.
+        Args:
+            token: The Telegram Bot API token from BotFather
         """
         self.token = token
         self.base_url = f"https://api.telegram.org/bot{token}"
 
-    def get_me(self) -> Dict:
+    def get_me(self):
         """Get basic information about the bot.
 
         Returns:
-            Dict: Bot information including id, username, name
+            Dictionary containing bot information (id, username, name)
         """
 
-    def get_updates(self, offset: Optional[int] = None) -> List[Dict]:
+    def get_updates(self, offset=None):
         """Get updates from Telegram.
 
         Args:
-            offset (int, optional): Update ID to start from
+            offset: Message offset ID to start from (optional)
 
         Returns:
-            List[Dict]: List of update objects
+            List of update objects from Telegram
         """
 
-    def send_message(self, chat_id: Union[int, str], text: str) -> Dict:
+    def send_message(self, chat_id, text):
         """Send a text message.
 
         Args:
-            chat_id (Union[int, str]): Chat ID to send message to
-            text (str): Message text to send
+            chat_id: Chat ID to send message to
+            text: Message text to send
 
         Returns:
-            Dict: Message information
+            Dictionary containing sent message information
         """
 
-    def send_photo(
-        self, chat_id: Union[int, str], photo: str, caption: Optional[str] = None
-    ) -> Dict:
+    def send_photo(self, chat_id, photo, caption=None):
         """Send a photo message.
 
         Args:
-            chat_id (Union[int, str]): Chat ID to send photo to
-            photo (str): File path or URL of the photo
-            caption (str, optional): Caption for the photo
+            chat_id: Chat ID to send photo to
+            photo: File path or URL of the photo
+            caption: Caption for the photo (optional)
 
         Returns:
-            Dict: Message information
+            Dictionary containing sent message information
         """
 
-    def send_document(
-        self, chat_id: Union[int, str], document: str, caption: Optional[str] = None
-    ) -> Dict:
+    def send_document(self, chat_id, document, caption=None):
         """Send a document.
 
         Args:
-            chat_id (Union[int, str]): Chat ID to send document to
-            document (str): File path or URL of the document
-            caption (str, optional): Caption for the document
+            chat_id: Chat ID to send document to
+            document: File path or URL of the document
+            caption: Caption for the document (optional)
 
         Returns:
-            Dict: Message information
+            Dictionary containing sent message information
         """
 
-    def send_audio(
-        self, chat_id: Union[int, str], audio: str, caption: Optional[str] = None
-    ) -> Dict:
+    def send_audio(self, chat_id, audio, caption=None):
         """Send an audio file.
 
         Args:
-            chat_id (Union[int, str]): Chat ID to send audio to
-            audio (str): File path or URL of the audio file
-            caption (str, optional): Caption for the audio
+            chat_id: Chat ID to send audio to
+            audio: File path or URL of the audio file
+            caption: Caption for the audio (optional)
 
         Returns:
-            Dict: Message information
+            Dictionary containing sent message information
         """
 
-    def send_dice(self, chat_id: Union[int, str], emoji: Optional[str] = None) -> Dict:
+    def send_dice(self, chat_id, emoji=None):
         """Send a dice message.
 
         Args:
-            chat_id (Union[int, str]): Chat ID to send dice to
-            emoji (str, optional): Emoji on which the dice throw animation is based.
-                                 Currently, must be one of "🎲", "🎯", "🏀", "⚽", "🎳", or "🎰"
+            chat_id: Chat ID to send dice to
+            emoji: Emoji for the dice animation (optional)
+                  Can be "🎲", "🎯", "🏀", "⚽", "🎳", or "🎰"
 
         Returns:
-            Dict: Message information
+            Dictionary containing sent message information
         """
