@@ -1,25 +1,20 @@
-# Simple Python Telegram Bot Package
+# Simple Python Telegram Bot
 
-This homework project involves creating a basic Python package for interacting with the Telegram Bot API. The focus is on implementing core functionality like receiving updates and sending messages.
+This homework project involves creating a basic Python program for interacting with the Telegram Bot API. The focus is on implementing core functionality like receiving updates and sending messages.
 
 ## Tasks
 
 ### 1. Project Setup (30 points)
 - Create the basic project structure with the following files:
   ```
-  python-telegram-bot/
-  ├── src/
-  │   ├── simple_telegram_bot/
-  │   │   ├── __init__.py
-  │   │   ├── bot.py
-  │   │   └── api.py
-  │   └── setup.py
-  ├── requirements.txt
-  └── README.md
+  telegram-bot/
+  ├── simple_telegram_bot/
+  │   ├── bot.py
+  │   └── api.py
+  └── requirements.txt
   ```
-- Initialize a virtual environment
-- Set up `requirements.txt` with necessary dependencies (requests)
-- Create a proper `setup.py` for package installation
+- Install the requests library (`pip install requests`)
+- Set up a virtual environment (optional but recommended)
 
 ### 2. Core Bot Implementation (40 points)
 
