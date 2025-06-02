@@ -1,13 +1,14 @@
-from simple_telegram_bot.bot import TelegramBot
+from bot import TelegramBot
 import time
 
 
 def main():
     # Replace with your bot token
-    bot = TelegramBot("YOUR_BOT_TOKEN")
+    bot = TelegramBot('8045285503:AAGGplQLaXiGpuhPA2MV5kjx7cowGZVB0Mo')
+    print(bot.get_me())
 
     print("Bot started...")
-    last_update_id = None
+    last_update_id = 0
 
     while True:
         # Get updates from Telegram

@@ -17,6 +17,8 @@ class TelegramBot:
         Returns:
             Dictionary containing bot information (id, username, name)
         """
+        response=requests.get(f"{self.base_url}/getMe")
+        return(response.json())
 
     def get_updates(self, offset=None):
         """Get updates from Telegram.
@@ -27,6 +29,11 @@ class TelegramBot:
         Returns:
             List of update objects from Telegram
         """
+        params={}
+        if offset!=None:
+            params['offset']=offset
+        res=requests.get(f'{self.base_url}/getUpdates',params=params)
+        return(res.json()['result'])
 
     def send_message(self, chat_id, text):
         """Send a text message.
@@ -38,6 +45,8 @@ class TelegramBot:
         Returns:
             Dictionary containing sent message information
         """
+        re=requests.post(f'{self.base_url}/sendMessage',params={'chat_id':chat_id,'text':text})
+        return(re.json())
 
     def send_photo(self, chat_id, photo, caption=None):
         """Send a photo message.
@@ -50,6 +59,13 @@ class TelegramBot:
         Returns:
             Dictionary containing sent message information
         """
+        re=requests.post(f'{self.base_url}/sendPhoto',params={
+            'chat_id':chat_id,
+            'photo':photo,
+            'caption':caption,
+
+        })
+        return re.json()
 
     def send_document(self, chat_id, document, caption=None):
         """Send a document.
@@ -62,6 +78,13 @@ class TelegramBot:
         Returns:
             Dictionary containing sent message information
         """
+        params={
+            'chat_id':chat_id,
+            'document':document,
+            'caption':caption
+        }
+        re=requests.post(f'{self.base_url}/sendDocument',params=params)
+        return re.json()
 
     def send_audio(self, chat_id, audio, caption=None):
         """Send an audio file.
@@ -74,6 +97,13 @@ class TelegramBot:
         Returns:
             Dictionary containing sent message information
         """
+        params={
+            'chat_id':chat_id,
+            'audio':audio,
+            'caption':caption
+        }
+        re=requests.post(f'{self.base_url}/sendAudio',params=params)
+        return re.json()
 
     def send_dice(self, chat_id, emoji=None):
         """Send a dice message.
@@ -86,3 +116,9 @@ class TelegramBot:
         Returns:
             Dictionary containing sent message information
         """
+        params={
+            'chat_id':chat_id,
+            'emoji':emoji,
+        }
+        re=requests.post(f'{self.base_url}/sendDice',params=params)
+        return re.json()
